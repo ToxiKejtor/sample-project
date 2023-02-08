@@ -28,6 +28,12 @@ export const useStore = defineStore("counter", {
     },
     favourites: [],
   }),
+  getters: {
+    isNextPage: (state) => state.results.page < state.results.total_pages,
+
+    isPreviousPage: (state) => state.results.page > 1,
+  },
+
   actions: {
     setStatus(status: Status): void {
       this.status = status;
