@@ -11,6 +11,8 @@ interface State {
   results: MoviesResult;
   favourites: Record[];
   status: Status;
+  toastMessage: string;
+  toastActive: boolean;
 }
 
 export const useStore = defineStore("counter", {
@@ -28,6 +30,8 @@ export const useStore = defineStore("counter", {
       data: [],
     },
     favourites: [],
+    toastMessage: "",
+    toastActive: false,
   }),
   getters: {
     isNextPage: (state) => state.results.page < state.results.total_pages,
@@ -37,10 +41,14 @@ export const useStore = defineStore("counter", {
     addFavourite(item: Record): void {
       if (!this.favourites.includes(item)) {
         this.favourites.push(item);
+        this.toastMessage = "Added!";
+        this.toastActive = true;
       }
     },
     removeFavourite(id: string): void {
       this.favourites = this.favourites.filter((item) => item.imdbID !== id);
+      this.toastMessage = "Removed!";
+      this.toastActive = true;
     },
 
     async fetchMovies(): Promise<void> {

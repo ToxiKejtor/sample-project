@@ -13,6 +13,7 @@
         <v-col :cols="12" :sm="6" :md="4"><Favourites /></v-col>
       </v-row>
     </v-container>
+    <Toast />
   </main>
 </template>
 
@@ -20,6 +21,7 @@
 import Search from "@/components/Search.vue";
 import Results from "@/components/Results.vue";
 import Favourites from "@/components/Favourites.vue";
+import Toast from "@/components/Toast.vue";
 </script>
 
 <style scoped></style>
