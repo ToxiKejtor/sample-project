@@ -9,7 +9,7 @@
         icon
         @click="fetchPaginated('prev')"
       >
-        <v-icon>mdi-arrow-left</v-icon>
+        <v-icon icon="mdi-arrow-left" />
       </v-btn>
       <v-spacer v-else></v-spacer>
       <v-btn
@@ -20,7 +20,7 @@
         icon
         @click="fetchPaginated('next')"
       >
-        <v-icon>mdi-arrow-right</v-icon>
+        <v-icon icon="mdi-arrow-right" />
       </v-btn>
       <v-spacer v-else></v-spacer>
     </div>

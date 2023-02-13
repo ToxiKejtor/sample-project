@@ -30,20 +30,19 @@
           :key="movie.imdbID"
           data-test="record"
         >
-          <v-tooltip top>
+          <v-tooltip top text="Add to favourites">
             <template v-slot:activator="{ on, attrs }">
               <v-btn
                 data-test="favourite-add"
-                small
+                size="small"
                 icon
                 v-bind="attrs"
                 v-on="on"
                 class="mr-3"
                 @click="store.addFavourite(movie)"
-                ><v-icon>mdi-star-plus</v-icon></v-btn
-              >
+                ><v-icon icon="mdi-star-plus"
+              /></v-btn>
             </template>
-            <span>Add to favourites</span>
           </v-tooltip>
           <div class="text-left">
             <v-list-item-title class="results__movie-title">{{

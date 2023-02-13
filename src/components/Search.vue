@@ -8,6 +8,7 @@
       data-test="search"
     ></v-text-field>
     <v-btn
+      size="large"
       class="ml-2"
       @click="store.fetchMovies()"
       :loading="store.status === 'progress'"
