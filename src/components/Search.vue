@@ -1,7 +1,7 @@
 <template>
-  <div class="d-flex align-center">
+  <div class="d-flex align-sm-center flex-column flex-sm-row">
     <v-text-field
-      class="input__search"
+      class="input__search mb-3 mb-sm-0"
       label="Search movies..."
       v-model="search"
       @keydown.enter="store.fetchMovies()"
@@ -9,7 +9,7 @@
     ></v-text-field>
     <v-btn
       size="large"
-      class="ml-2"
+      class="ml-sm-2 ml-0"
       @click="store.fetchMovies()"
       :loading="store.status === 'progress'"
       :disabled="search === ''"

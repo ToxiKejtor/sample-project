@@ -3,7 +3,7 @@
     <v-container>
       <v-row>
         <v-spacer />
-        <v-col :cols="8">
+        <v-col :cols="12">
           <Search />
         </v-col>
         <v-spacer />
