@@ -42,7 +42,7 @@ const fetchPaginated = (direction: "next" | "prev"): void => {
   direction === "next"
     ? (newParams = { ...store.params, page: store.params.page + 1 })
     : (newParams = { ...store.params, page: store.params.page - 1 });
-  store.setParams(newParams);
+  store.params = newParams;
   store.fetchMovies();
 };
 </script>

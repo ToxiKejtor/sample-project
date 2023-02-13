@@ -1,6 +1,7 @@
 import { defineStore } from "pinia";
+import type { MoviesResult, Params, Record } from "../composables/useMovieApi";
 import useMovieApi from "../composables/useMovieApi";
-import type { Params, MoviesResult, Record } from "../composables/useMovieApi";
+
 const { fetchMovies } = useMovieApi();
 
 type Status = "init" | "progress" | "ready";
@@ -30,20 +31,9 @@ export const useStore = defineStore("counter", {
   }),
   getters: {
     isNextPage: (state) => state.results.page < state.results.total_pages,
-
     isPreviousPage: (state) => state.results.page > 1,
   },
-
   actions: {
-    setStatus(status: Status): void {
-      this.status = status;
-    },
-    setParams(params: Params): void {
-      this.params = params;
-    },
-    setResults(results: MoviesResult): void {
-      this.results = results;
-    },
     addFavourite(item: Record): void {
       if (!this.favourites.includes(item)) {
         this.favourites.push(item);
@@ -54,10 +44,9 @@ export const useStore = defineStore("counter", {
     },
 
     async fetchMovies(): Promise<void> {
-      this.setStatus("progress");
-      const results = await fetchMovies(this.params);
-      this.setResults(results);
-      this.setStatus("ready");
+      this.status = "progress";
+      this.results = await fetchMovies(this.params);
+      this.status = "ready";
     },
   },
 });

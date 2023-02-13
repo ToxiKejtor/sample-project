@@ -25,7 +25,7 @@ import { computed } from "vue";
 const store = useStore();
 const search = computed({
   get: () => store.params.title,
-  set: (val) => store.setParams({ ...store.params, title: val }),
+  set: (val) => (store.params = { ...store.params, title: val }),
 });
 </script>
 
