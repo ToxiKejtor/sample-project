@@ -3,13 +3,13 @@
     <v-card-subtitle
       class="text-center"
       v-if="store.status === 'init'"
-      data-test="init"
+      data-cy="init"
     >
       Your search results will be shown here
     </v-card-subtitle>
     <v-card-subtitle
       class="text-center"
-      data-test="loading"
+      data-cy="loading"
       v-else-if="store.status === 'progress'"
     >
       <v-progress-circular indeterminate />
@@ -18,22 +18,23 @@
 
     <v-card-subtitle
       class="justify-center"
-      data-test="empty"
+      data-cy="empty"
       v-else-if="store.status === 'ready' && store.results.data.length === 0"
     >
       No results found
     </v-card-subtitle>
     <div class="px-3" v-else>
-      <v-list data-test="results">
+      <v-list data-cy="results" tag="ul">
         <v-list-item
           v-for="movie in store.results.data"
           :key="movie.imdbID"
-          data-test="record"
+          tag="li"
+          data-cy="result"
         >
           <v-tooltip top text="Add to favourites">
             <template v-slot:activator="{ on, attrs }">
               <v-btn
-                data-test="favourite-add"
+                data-cy="favourite-add"
                 size="small"
                 icon
                 v-bind="attrs"
@@ -52,7 +53,7 @@
           </div>
         </v-list-item>
       </v-list>
-      <PaginationButtons data-test="pagination-buttons" />
+      <PaginationButtons data-cy="pagination-buttons" />
     </div>
   </v-card>
 </template>

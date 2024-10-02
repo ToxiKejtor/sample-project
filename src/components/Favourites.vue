@@ -3,14 +3,14 @@
     <v-card-title class="d-flex align-center justify-center"
       ><v-icon icon="mdi-star" />Favourites</v-card-title
     >
-    <v-card-subtitle data-test="empty" v-if="store.favourites.length === 0">
+    <v-card-subtitle data-cy="empty" v-if="store.favourites.length === 0">
       Your favourites will be displayed here
     </v-card-subtitle>
-    <v-list v-else data-test="favourites">
+    <v-list v-else data-cy="favourites">
       <v-list-item
         v-for="movie in store.favourites"
         :key="movie.imdbID"
-        data-test="favourite"
+        data-cy="favourite"
       >
         <v-tooltip top text="Remove from favourites">
           <template v-slot:activator="{ on, attrs }">
@@ -21,7 +21,7 @@
               v-bind="attrs"
               v-on="on"
               @click="store.removeFavourite(movie.imdbID)"
-              data-test="favourite-remove"
+              data-cy="favourite-remove"
               ><v-icon icon="mdi-star-minus-outline"
             /></v-btn>
           </template>

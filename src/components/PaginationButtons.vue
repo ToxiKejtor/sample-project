@@ -2,7 +2,7 @@
   <div>
     <div class="d-flex justify-space-between">
       <v-btn
-        data-test="button-previous"
+        data-cy="button-previous"
         elevation="2"
         class="justify-self-start"
         v-if="store.isPreviousPage"
@@ -13,7 +13,7 @@
       </v-btn>
       <v-spacer v-else></v-spacer>
       <v-btn
-        data-test="button-next"
+        data-cy="button-next"
         elevation="2"
         class="justify-self-end"
         v-if="store.isNextPage"
